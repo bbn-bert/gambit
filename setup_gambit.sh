@@ -1,12 +1,13 @@
 #!/bin/bash
 
-echo "Setting up..."
-sudo apt install automake libtool
-pip3 install Cython
+## THESE NEED TO BE RUN MANUALLY
+# echo "Setting up..."
+# sudo apt install automake libtool
+# pip3 install Cython
 
-git clone https://github.com/bbn-bert/gambit.git
-cd gambit
-git checkout -t python3
+# git clone https://github.com/bbn-bert/gambit.git
+# cd gambit
+# git checkout -t python3
 
 echo "Configuring gambit..." > config.log
 mkdir m4
