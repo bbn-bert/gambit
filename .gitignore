@@ -1,6 +1,5 @@
 *.o
 *.lo
-Makefile
 Makefile.in
 .deps
 .libs
@@ -8,7 +7,6 @@ Makefile.in
 *.cache
 config.log
 config.status
-configure
 libtool
 *.la
 *.a
@@ -21,10 +19,6 @@ _build
 build
 *.egg-info
 *.pyc
-
-config.guess
-config.sub
-ltmain.sh
 gambit.exe
 gambit.msi
 gambit.wixobj
