@@ -51,7 +51,9 @@ class ExternalSolver(object):
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                              close_fds=True if sys.platform != "win32" else False)
         child_stdin, child_stdout = p.stdin, p.stdout
-        child_stdin.write(game.write(format='native'))
+        #child_stdin.write(game.write(format='native'))
+        game_spec = game.write(format='native').encode('latin-1').decode('unicode_escape')[2:-3]
+        child_stdin.write(game_spec.encode('utf-8'))
         # Need to close, or at least flush, stdin of the child, or else
         # processing won't begin...
         child_stdin.close()
@@ -60,7 +62,8 @@ class ExternalSolver(object):
     def _parse_output(self, stream, game, rational, extensive=False):
         profiles = [ ]
         for line in stream:
-            entries = line.strip().split(",")
+            #entries = line.strip().split(",")
+            entries = line.decode('utf-8').strip().split(",")
             if entries[0] != "NE":  continue
             if extensive:
                 profile = game.mixed_behavior_profile(rational=rational)
