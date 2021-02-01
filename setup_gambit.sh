@@ -31,4 +31,4 @@ cd src/python
 python3 ./setup.py build > build.log
 
 echo "Installing python extensions..."
-sudo python3 ./setup.py install 2>&1>install.log
+python3 ./setup.py install 2>&1>install.log
