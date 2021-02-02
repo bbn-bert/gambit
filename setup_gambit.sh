@@ -24,7 +24,7 @@ make -j 8 2>/dev/null 1>build.log
 make -j 8 > build.log
 
 echo "Installing gambit binaries..."
-sudo make install > install.log
+make install > install.log
 
 echo "Building python extensions..."
 cd src/python
