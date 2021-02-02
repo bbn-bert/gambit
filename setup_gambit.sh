@@ -20,8 +20,8 @@ autoconf >> config.log
 echo "Building gambit binaries..."
 # first make always fails from a possibly broken configuration,
 # second make will work for some reason
-make 2>/dev/null 1>build.log
-make > build.log
+make -j 8 2>/dev/null 1>build.log
+make -j 8 > build.log
 
 echo "Installing gambit binaries..."
 sudo make install > install.log
