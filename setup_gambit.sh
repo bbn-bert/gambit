@@ -15,7 +15,7 @@ aclocal
 libtoolize
 automake --add-missing
 autoconf
-./configure --prefix="$(pwd)" --disable-gui
+./configure --prefix="/usr/bin" --disable-gui
 
 echo "Building gambit binaries..."
 # first make always fails from a possibly broken configuration,
