@@ -10,25 +10,25 @@
 # git checkout -t python3
 
 echo "Configuring gambit..."
-mkdir m4 >> config.log
-aclocal >> config.log
-libtoolize >> config.log
-automake --add-missing >> config.log
-autoconf >> config.log
-./configure --prefix="$(pwd)" --disable-gui >> config.log
+mkdir m4
+aclocal
+libtoolize
+automake --add-missing
+autoconf
+./configure --prefix="$(pwd)" --disable-gui
 
 echo "Building gambit binaries..."
 # first make always fails from a possibly broken configuration,
 # second make will work for some reason
-make -j 8 2>/dev/null 1>build.log
-make -j 8 > build.log
+make -j 8 2>/dev/null
+make -j 8
 
 echo "Installing gambit binaries..."
-make install > install.log
+make install
 
 echo "Building python extensions..."
 cd src/python
-python3 ./setup.py build > build.log
+python3 ./setup.py build
 
 echo "Installing python extensions..."
-python3 ./setup.py install 2>&1>install.log
+python3 ./setup.py install
