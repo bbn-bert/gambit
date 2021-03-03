@@ -47,7 +47,7 @@ class ExternalSolver(object):
         input in .efg format (if a tree) or .nfg format (if a table).
         Returns the object referencing standard output of the external program.
         """
-        p = subprocess.Popen("timeout -k %s %s %s -q" % (str(timeout+1), str(timeout), prog), shell=True,
+        p = subprocess.Popen("timeout -k %s %s %s -q" % (str(timeout), str(timeout), prog), shell=True,
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                              close_fds=True if sys.platform != "win32" else False)
         child_stdin, child_stdout = p.stdin, p.stdout
