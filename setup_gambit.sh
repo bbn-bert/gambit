@@ -15,7 +15,7 @@ aclocal
 libtoolize
 automake --add-missing
 autoconf
-./configure --prefix="/usr/" --disable-gui
+./configure --prefix="/usr/" --disable-gui "CFLAGS=-m64" "CXXFLAGS=-m64" "LDFLAGS=-m64"
 
 echo "Building gambit binaries..."
 # first make always fails from a possibly broken configuration,
