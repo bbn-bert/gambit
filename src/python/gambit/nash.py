@@ -59,7 +59,7 @@ class ExternalSolver(object):
         child_stdin.close()
         return child_stdout
 
-    def _parse_output(self, stream, game, rational, extensive=False):
+    def _parse_output(self, stream, game, rational, extensive=False, close_stream = True):
         profiles = [ ]
         for line in stream:
             #entries = line.strip().split(",")
@@ -75,6 +75,8 @@ class ExternalSolver(object):
                 else:
                     profile[i] = float(p)
             profiles.append(NashSolution(profile))
+        if close_stream :
+            stream.close()
         return profiles
 
 class ExternalEnumPureSolver(ExternalSolver):
